@@ -19,7 +19,7 @@ void setup() {
 
 void loop() {
   reading = analogRead(tempSensor);    
-  tempC = ((reading * 5.0) / 1024.0 - 0.5) * 97,5;      
+  tempC = ((reading * 5.0) / 1024.0 - 0.5) * 95;      
 
   Serial.println(tempC); //prints the temperature
 
