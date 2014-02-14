@@ -18,15 +18,15 @@ void setup() {
 }
 
 void loop() {
-  reading = analogRead(tempSensor);    // Read TMP36 in input range 0-1024
-  tempC = ((reading * 5.0) / 1024.0 - 0.5) * 10;      // 10mv per degree with 500mv offset
+  reading = analogRead(tempSensor);    
+  tempC = ((reading * 5.0) / 1024.0 - 0.5) * 50;      
   Serial.println(reading);
   Serial.println(voltage);
   Serial.println(tempC);
 
 
   // if the sensor reading is greater than the threshold:
-  if (sensorReading >= threshold) {
+  if (reading >= threshold) {
     // toggle the status of the ledPin:
     ledState = !ledState;   
     // update the LED pin itself:        
