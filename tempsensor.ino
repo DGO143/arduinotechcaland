@@ -27,5 +27,5 @@ void loop() {
     Serial.println("TOO HOT IN HERE!!!");         
   }
   Serial.println(sensorReading);
-  delay(100);  // delay to avoid overloading the serial port buffer
+  delay(1000);  // delay to avoid overloading the serial port buffer
 }
