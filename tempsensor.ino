@@ -1,4 +1,3 @@
-
 // these constants won't change:
 const int ledPin = 13;      // led connected to digital pin 13
 const int tempSensor = A0; // the piezo is connected to analog pin 0
