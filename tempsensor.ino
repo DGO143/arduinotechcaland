@@ -23,7 +23,7 @@ void loop() {
     ledState = !ledState;   
     // update the LED pin itself:        
     digitalWrite(ledPin, ledState);
-    // send the string "Knock!" back to the computer, followed by newline
+    // send the string "TOO HOT IN HERE!!!" back to the computer, followed by newline
     Serial.println("TOO HOT IN HERE!!!");         
   }
   Serial.println(sensorReading);
