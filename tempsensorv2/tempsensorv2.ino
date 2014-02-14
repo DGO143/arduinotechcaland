@@ -8,6 +8,9 @@ const int threshold = 200;  // threshold value to decide when the detected sound
 // these variables will change:
 int sensorReading = 0;      // variable to store the value read from the sensor pin
 int ledState = LOW;         // variable used to store the last LED status, to toggle the light
+int reading = 0;
+int voltage = 0;
+int tempC = 0;
 
 void setup() {
   pinMode(ledPin, OUTPUT); // declare the ledPin as as OUTPUT
@@ -15,11 +18,13 @@ void setup() {
 }
 
 void loop() {
-    reading = analogRead(sensorPin);    // Read TMP36 in input range 0-1024
-    voltage = (reading * 5.0) / 1024.0; // Scale to actual voltage (5V Arduino)
-    tempC = (voltage - 0.5) * 100;      // 10mv per degree with 500mv offset
-    Serial.println("Temperature = " tempC);
-}
+  reading = analogRead(tempSensor);    // Read TMP36 in input range 0-1024
+  tempC = ((reading * 5.0) / 1024.0 - 0.5) * 10;      // 10mv per degree with 500mv offset
+  Serial.println(reading);
+  Serial.println(voltage);
+  Serial.println(tempC);
+
+
   // if the sensor reading is greater than the threshold:
   if (sensorReading >= threshold) {
     // toggle the status of the ledPin:
@@ -29,7 +34,6 @@ void loop() {
     // send the string "TOO HOT IN HERE!!!" back to the computer, followed by newline
     Serial.println("TOO HOT IN HERE!!!");         
   }
-  Serial.println("sensorReading = " sensorReading);
   delay(1000);  // delay to avoid overloading the serial port buffer
 }
 
